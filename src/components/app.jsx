@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import MainImage from './main_image'
 import Projects from './projects'
-
+import AboutMe from './about_me'
+import Navigation from './navigation'
 
 
 class App extends Component {
@@ -10,7 +11,10 @@ class App extends Component {
 
     this.state = {
       mainImage: true,
-      projects: false
+      mainImageSize: 'big',
+      mainImageText: true,
+      projects: false,
+      aboutme: false
     };
 
     this.toggleProjects = this.toggleProjects.bind(this);
@@ -19,15 +23,39 @@ class App extends Component {
   toggleProjects = () => {
     this.setState({
       mainImage: false,
-      projects: true
+      mainImageText: false,
+      projects: true,
+      aboutme: false
     });
   }
 
+  toggleAboutMe = () => {
+    this.setState({
+      mainImage: true,
+      mainImageSize: 'small',
+      mainImageText: false,
+      projects: false,
+      aboutme: true
+    });
+  }
+
+  toggleHome = () => {
+    this.setState({
+      mainImage: true,
+      mainImageSize: 'big',
+      mainImageText: true,
+      projects: false,
+      aboutme: false
+    });
+  }
   render() {
     return (
       <div className="container">
-        <MainImage mainImage={this.state.mainImage} toggleProjectsFunction={this.toggleProjects} />
+        <MainImage mainImage={this.state.mainImage} mainImageSize={this.state.mainImageSize} mainImageText={this.state.mainImageText}/>
         <Projects projects={this.state.projects}/>
+        <AboutMe aboutme={this.state.aboutme} />
+        <Navigation toggleProjectsFunction={this.toggleProjects} toggleAboutMeFunction={this.toggleAboutMe} toggleHomeFunction={this.toggleHome}
+          aboutme={this.state.aboutme} projects={this.state.projects} mainImageText={this.state.mainImageText}/>
       </div>
     );
   }
