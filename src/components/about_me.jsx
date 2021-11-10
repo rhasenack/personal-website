@@ -25,7 +25,7 @@ class AboutMe extends Component {
           <p>In my free time, I love playing and producing
             <strong> music </strong>
             , as well as playing football and Ultimate Frisbee!
-            You can check two of my singles in <strong>SoundCloud</strong>.</p>
+            You can check two of my singles in <strong><a id="soundcloud-link"href="https://soundcloud.com/ricardo-hasenack">SoundCloud</a></strong>.</p>
         </div>
       </div>
     )
